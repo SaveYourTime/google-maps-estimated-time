@@ -32,6 +32,7 @@ class Crawler {
     await this.page.waitForSelector('#directions-searchbox-1 input');
     await this.page.type('#directions-searchbox-1 input', placeB);
     await this.page.keyboard.press('Enter');
+    await this.page.click('.travel-mode[data-travel_mode="0"]');
     const element = await this.page.waitForSelector('.section-directions-trip-duration');
     const time = await this.page.evaluate(element => element.innerText, element);
     await this.browser.close();
